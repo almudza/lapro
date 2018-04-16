@@ -18,3 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+/**
+ * =============================================================================*
+ * --------------------- Backend ADMIN Route -----------------------------------*
+ * =============================================================================*
+ */
+Route::group([' namespace' => 'Backend', 'middleware' => 'auth'], function() {
+
+    Route::get('admin', 'AdminController@index')->name('admin.home');
+});
